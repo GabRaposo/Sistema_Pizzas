@@ -1,0 +1,3 @@
+public enum EstadoPedido {
+    PENDENTE, PREPARANDO, SAIU_PARA_ENTREGA, ENTREGUE, CANCELADO;
+}
