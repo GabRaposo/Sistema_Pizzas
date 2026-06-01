@@ -1,12 +1,14 @@
-package br.edu.ufersa.PizzariaDAOeSERVICE.model.Entities;
+package br.edu.ufersa.PizzariaDAOeSERVICE.model.entities;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
+    private Long id; // adicionado para operações no banco
     private Cliente cliente;
     private Pizza pizza;
     private List<Adicional> adicionais;
-    private TamanhoPizza tamanho;    
+    private TamanhoPizza tamanho;
     private EstadoPedido estado;
 
     public Pedido(Cliente cliente, Pizza pizza, List<Adicional> adicionais, TamanhoPizza tamanho) {
@@ -14,7 +16,7 @@ public class Pedido {
         this.pizza = pizza;
         this.adicionais = new ArrayList<>(adicionais);
         this.tamanho = tamanho;
-        this.estado = EstadoPedido.PENDENTE; 
+        this.estado = EstadoPedido.PENDENTE;
     }
 
     public double calcularTotal() {
@@ -29,23 +31,19 @@ public class Pedido {
         this.estado = estado;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+    // getters
+    public Long getId() { return id; }
+    public Cliente getCliente() { return cliente; }
+    public Pizza getPizza() { return pizza; }
+    public List<Adicional> getAdicionais() { return adicionais; }
+    public TamanhoPizza getTamanho() { return tamanho; }
+    public EstadoPedido getEstado() { return estado; }
 
-    public Pizza getPizza() {
-        return pizza;
-    }
-
-    public List<Adicional> getAdicionais() {
-        return adicionais;
-    }
-
-    public TamanhoPizza getTamanho() {
-        return tamanho;
-    }
-
-    public EstadoPedido getEstado() {
-        return estado;
+    public void setId(Long id) {
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new RuntimeException("Id inválido!");
+        }
     }
 }

@@ -1,4 +1,4 @@
-package br.edu.ufersa.PizzariaDAOeSERVICE.model.Entities;
+package br.edu.ufersa.PizzariaDAOeSERVICE.model.entities;
 import java.util.ArrayList;
 import java.util.List;
 

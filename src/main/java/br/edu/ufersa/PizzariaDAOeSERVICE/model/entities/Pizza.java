@@ -1,5 +1,7 @@
-package br.edu.ufersa.PizzariaDAOeSERVICE.model.Entities;
+package br.edu.ufersa.PizzariaDAOeSERVICE.model.entities;
+
 public class Pizza {
+    private Long id; // adicionado para operações no banco
     private String tipo;
     private double valor;
 
@@ -8,12 +10,18 @@ public class Pizza {
         setValor(valor);
     }
 
-    public String getTipo() {
-        return tipo;
-    }
+    // getters
+    public Long getId() { return id; }
+    public String getTipo() { return tipo; }
+    public double getValor() { return valor; }
 
-    public double getValor() {
-        return valor;
+    // setters
+    public void setId(Long id) {
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new RuntimeException("Id inválido!");
+        }
     }
 
     public void setTipo(String tipo) {

@@ -1,4 +1,4 @@
-package br.edu.ufersa.PizzariaDAOeSERVICE.model.Service;
+package br.edu.ufersa.PizzariaDAOeSERVICE.model.service;
 
 import java.util.List;
 
