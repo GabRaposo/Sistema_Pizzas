@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.edu.ufersa.PizzariaDAOeSERVICE.view.RegistrarPedidoController"
+            style="-fx-background-color: white;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" style="-fx-padding: 14 20; -fx-border-color: #d3d1c7; -fx-border-width: 0 0 1 0;">
+            <Button text="🏠 Home" onAction="#irParaHome"
+                    style="-fx-background-color: #6e5249; -fx-text-fill: white; -fx-background-radius: 8;" />
+            <Label text="🍕 Papa's Pizzeria" style="-fx-font-size: 16px;" />
+            <Label text="Registrar pedido" style="-fx-font-size: 14px; -fx-text-fill: #5f5e5a;" />
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" style="-fx-padding: 20;">
+
+            <!-- coluna esquerda: pizzas disponíveis -->
+            <VBox spacing="10" prefWidth="480">
+                <Label text="Selecione as pizzas:" style="-fx-font-size: 16px;" />
+                <ListView fx:id="listaPizzas" prefHeight="260" />
+
+                <HBox spacing="16" alignment="CENTER_LEFT">
+                    <fx:define>
+                        <ToggleGroup fx:id="grupoTamanho" />
+                    </fx:define>
+                    <RadioButton fx:id="radioPequena" text="P" toggleGroup="$grupoTamanho" />
+                    <RadioButton fx:id="radioMedia" text="M" toggleGroup="$grupoTamanho" />
+                    <RadioButton fx:id="radioGrande" text="G" toggleGroup="$grupoTamanho" selected="true" />
+                    <Label text="Qtd:" />
+                    <Spinner fx:id="spinnerQuantidadePizza" prefWidth="80" editable="true" />
+                    <Button text="Adicionar ao carrinho" onAction="#adicionarPizzaAoCarrinho"
+                            style="-fx-background-color: #e24b4a; -fx-text-fill: white;" />
+                </HBox>
+
+                <Label fx:id="labelErroPizza" style="-fx-text-fill: #e24b4a; -fx-font-size: 12px;" wrapText="true" />
+            </VBox>
+
+            <!-- coluna direita: carrinho + adicionais do item selecionado -->
+            <VBox spacing="10" prefWidth="480">
+                <Label text="Seu carrinho:" style="-fx-font-size: 16px;" />
+                <ListView fx:id="listaCarrinho" prefHeight="160" />
+
+                <Label fx:id="labelItemSelecionado" text="Selecione uma pizza do carrinho para adicionar extras"
+                       style="-fx-font-size: 13px; -fx-text-fill: #5f5e5a;" wrapText="true" />
+
+                <ListView fx:id="listaAdicionais" prefHeight="160" />
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Qtd:" />
+                    <Spinner fx:id="spinnerQuantidadeAdicional" prefWidth="80" editable="true" />
+                    <Button text="Adicionar adicional" onAction="#adicionarAdicionalAoItem"
+                            style="-fx-background-color: #ba7517; -fx-text-fill: white;" />
+                </HBox>
+
+                <Label fx:id="labelErroAdicional" style="-fx-text-fill: #e24b4a; -fx-font-size: 12px;" wrapText="true" />
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="20" style="-fx-padding: 16 20;">
+            <Label fx:id="labelTotal" text="Total: R$ 0,00" style="-fx-font-size: 16px;" />
+            <Button text="Prosseguir →" onAction="#prosseguir" prefWidth="160" prefHeight="40"
+                    style="-fx-background-color: #e24b4a; -fx-text-fill: white;" />
+        </HBox>
+    </bottom>
+</BorderPane>

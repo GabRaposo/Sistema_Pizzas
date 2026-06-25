@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="br.edu.ufersa.PizzariaDAOeSERVICE.view.RelatorioController"
+      spacing="14" style="-fx-padding: 24; -fx-background-color: white;">
+
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Button text="🏠 Home" onAction="#irParaHome"
+                style="-fx-background-color: #6e5249; -fx-text-fill: white; -fx-background-radius: 8;" />
+        <Label text="Relatório de Vendas" style="-fx-font-size: 18px;" />
+    </HBox>
+
+    <GridPane hgap="14" vgap="10" style="-fx-background-color: #f1efe8; -fx-padding: 16; -fx-background-radius: 8;">
+        <Label text="Data início" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <Label text="Data fim" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        <Label text="Estado" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+        <Label text="Pizza" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+        <DatePicker fx:id="campoDataInicio" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <DatePicker fx:id="campoDataFim" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <ComboBox fx:id="comboEstado" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+        <ComboBox fx:id="comboPizza" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+        <Label text="Cliente (CPF)" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <TextField fx:id="campoCpf" promptText="xxx.xxx.xxx-xx" GridPane.rowIndex="3" GridPane.columnIndex="0"
+                   GridPane.columnSpan="3" />
+        <Button text="Gerar Relatório" onAction="#gerarRelatorio"
+                GridPane.rowIndex="3" GridPane.columnIndex="3"
+                style="-fx-background-color: #9b7a72; -fx-text-fill: white;" />
+    </GridPane>
+
+    <Label fx:id="labelErro" style="-fx-text-fill: #e24b4a; -fx-font-size: 12px;" wrapText="true" />
+
+    <HBox spacing="14">
+        <VBox style="-fx-background-color: #f1efe8; -fx-padding: 14; -fx-background-radius: 8;" prefWidth="220">
+            <Label text="Pedidos no período" style="-fx-font-size: 12px; -fx-text-fill: #5f5e5a;" />
+            <Label fx:id="labelTotalPedidos" text="0" style="-fx-font-size: 22px;" />
+        </VBox>
+        <VBox style="-fx-background-color: #f1efe8; -fx-padding: 14; -fx-background-radius: 8;" prefWidth="220">
+            <Label text="Total vendido" style="-fx-font-size: 12px; -fx-text-fill: #5f5e5a;" />
+            <Label fx:id="labelTotalVendido" text="R$ 0,00" style="-fx-font-size: 22px;" />
+        </VBox>
+        <VBox style="-fx-background-color: #f1efe8; -fx-padding: 14; -fx-background-radius: 8;" prefWidth="220">
+            <Label text="Ticket médio" style="-fx-font-size: 12px; -fx-text-fill: #5f5e5a;" />
+            <Label fx:id="labelTicketMedio" text="R$ 0,00" style="-fx-font-size: 22px;" />
+        </VBox>
+    </HBox>
+
+    <Label text="Pedidos encontrados:" style="-fx-font-size: 14px;" />
+    <ListView fx:id="listaPedidos" prefHeight="240" />
+</VBox>
