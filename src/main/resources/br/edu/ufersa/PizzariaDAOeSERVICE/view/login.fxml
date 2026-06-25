@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="br.edu.ufersa.PizzariaDAOeSERVICE.view.LoginController"
+      alignment="CENTER" style="-fx-background-color: white;">
+
+    <!-- lado esquerdo: imagem decorativa (foto de pizza), igual ao Figma -->
+    <VBox prefWidth="500" alignment="CENTER" style="-fx-background-color: #2c2c2a;">
+        <Label text="🍕" style="-fx-font-size: 96px;" />
+    </VBox>
+
+    <!-- lado direito: formulário de login -->
+    <VBox prefWidth="524" alignment="CENTER" spacing="14" style="-fx-background-color: #9b7a72; -fx-padding: 40;">
+        <Label text="👤" style="-fx-font-size: 48px; -fx-text-fill: white;" />
+        <Label text="Faça Login" style="-fx-font-size: 22px; -fx-text-fill: #2c2c2a;" />
+
+        <TextField fx:id="campoNome" promptText="Nome" maxWidth="280" />
+        <PasswordField fx:id="campoSenha" promptText="Senha" maxWidth="280" />
+
+        <Label fx:id="labelErro" style="-fx-text-fill: #d4537e; -fx-font-size: 12px;" wrapText="true" maxWidth="280" />
+
+        <Button text="Entrar" onAction="#entrar" maxWidth="280" prefWidth="280" prefHeight="40"
+                style="-fx-background-color: #d85a30; -fx-text-fill: white; -fx-font-size: 14px;" />
+
+        <HBox alignment="CENTER" spacing="4">
+            <Label text="Ainda não possui conta?" />
+            <Hyperlink text="Aperte para criar!" onAction="#irParaCadastro" />
+        </HBox>
+    </VBox>
+</HBox>
